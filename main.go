@@ -14,6 +14,8 @@ func main() {
 	r.HandleFunc("/set", dbController.SetData).Methods("POST")
 	r.HandleFunc("/get", dbController.GetData).Methods("GET")
 	r.HandleFunc("/delete", dbController.DeleteData).Methods("POST") //Noted in requirement this should be a POST not a DELETE
+	r.HandleFunc("/search", dbController.SearchData).Methods("GET")
+	r.HandleFunc("/metrics", dbController.GetMetric).Methods("GET")
 
 	addr := "127.0.0.1:4000"
 	fmt.Println("Starting service on", addr)
